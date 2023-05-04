@@ -1,10 +1,10 @@
+import AddNewTodo from "./add-new-todo";
+import TodoList from "./todo-list";
 export default function page() {
   return (
     <div>
-      <div>
-        <input type="text" />
-        <button>Add</button>
-      </div>
+      <AddNewTodo />
+      <TodoList />
     </div>
   );
 }
