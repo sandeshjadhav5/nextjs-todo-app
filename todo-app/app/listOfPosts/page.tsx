@@ -14,7 +14,7 @@ export default async function ListOfPosts() {
       <h1>Posts</h1>
       {posts &&
         posts.map((el: any) => {
-          return <div>{el.title}</div>;
+          return <div className="p-4">{el.title}</div>;
         })}
     </div>
   );
