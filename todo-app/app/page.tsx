@@ -44,6 +44,32 @@ export default function Home() {
           <input className="w-11/12 mt-8 p-2 bg-violet-400" type="submit" />
         </form>
       </div>
+      <div>
+        <h1 className="text-center mt-5 text-xl">Todo List</h1>
+        <div className="flex justify-center">
+          <table className="table-auto w-full max-w-md">
+            <thead>
+              <tr>
+                <th>Task Name</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              {todos &&
+                todos.map((el) => (
+                  <tr className="p-2  border-4 border-black-800">
+                    <td className="p-2  border-2 border-black-500">
+                      {el.name}
+                    </td>
+                    <td className="p-2  border-2 border-black-500">
+                      {el.priority}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
