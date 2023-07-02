@@ -1,18 +1,37 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [todos, setTodos] = useState([]);
+  const [name, setName] = useState("");
+  const [priority, setPriority] = useState("");
+
+  const addTodo = (e: any) => {
+    e.preventDefault();
+    console.log(name, priority);
+  };
+
   return (
     <div className="min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-xl text-center">Todo Application</h1>
       <div className="w-4/12 p-12 m-auto mt-8 border-t-neutral-950 border-solid border-1 bg-violet-300">
-        <form>
+        <form onSubmit={addTodo}>
           <label>Write Task Name</label>
-          <input className="w-11/12 p-2" />
+          <input
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            className="w-11/12 p-2"
+          />
           <br />
           <br />
           <label>Select Task Priority</label>
           <br />
-          <select className="w-11/12 p-2">
+          <select
+            className="w-11/12 p-2"
+            onChange={(e) => setPriority(e.target.value)}
+          >
             <option>Select Priority</option>
             <option>Low</option>
             <option>Medium</option>
