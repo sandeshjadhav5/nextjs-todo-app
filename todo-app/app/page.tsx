@@ -1,17 +1,21 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-
+interface Todo {
+  name: String;
+  priority: String;
+}
 export default function Home() {
-  const [todos, setTodos] = useState([]);
-  const [name, setName] = useState("");
-  const [priority, setPriority] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [name, setName] = useState<string>("");
+  const [priority, setPriority] = useState<string>("");
 
-  const addTodo = (e: any) => {
+  const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name, priority);
+    const payload: Todo = { name, priority };
+    setTodos([...todos, payload]);
   };
-
+  console.log(todos);
   return (
     <div className="min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-xl text-center">Todo Application</h1>
